@@ -2,4 +2,4 @@
 .vscode/
 .git/
 config.js
-.txt
+*.txt
