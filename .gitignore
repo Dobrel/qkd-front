@@ -2,4 +2,5 @@
 .vscode/
 .git/
 config.js
-salut-lume.txt
+*.txt
+server.js
