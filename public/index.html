@@ -1,16 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ro">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>My React App</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+    <meta charset="UTF-8">
+    <title>MinIO Frontend Uploader</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
+        .uploader { padding: 2rem; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+        button { padding: 0.5rem 1rem; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
+        #status { margin-top: 1rem; font-weight: bold; }
+    </style>
 </head>
 <body>
-<div class="header">
-    <input type="file" id="fileInput"/>
-</div>
+    <div class="uploader">
+        <h1>Încarcă un fișier</h1>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" required>
+            <br><br>
+            <button type="submit">Încarcă</button>
+        </form>
+        <p id="status"></p>
+    </div>
+    <script src="index.js"></script>
 </body>
+</html>
