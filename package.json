@@ -1,5 +1,16 @@
 {
+  "name": "aplicatie-minio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.878.0"
+    "minio": "^8.0.0" 
   }
 }
