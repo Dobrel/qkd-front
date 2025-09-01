@@ -1,25 +1,49 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>MinIO Frontend Uploader</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; }
-        .uploader { padding: 2rem; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
-        button { padding: 0.5rem 1rem; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
-        #status { margin-top: 1rem; font-weight: bold; }
-    </style>
+  <title>MinIO Upload (No Backend)</title>
 </head>
 <body>
-    <div class="uploader">
-        <h1>Încarcă un fișier</h1>
-        <form id="uploadForm">
-            <input type="file" id="fileInput" required>
-            <br><br>
-            <button type="submit">Încarcă</button>
-        </form>
-        <p id="status"></p>
-    </div>
-    <script src="index.js"></script>
+  <h2>Upload File to MinIO (No Backend)</h2>
+  <input type="file" id="fileInput">
+  <button onclick="upload()">Upload</button>
+
+  <script>
+    async function upload() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert("Please select a file.");
+        return;
+      }
+
+      const bucket = 'my-bucket';
+      const filename = file.name;
+
+      // Example: MinIO running on localhost:9000 without SSL
+      const url = `http://localhost:9000/${bucket}/${filename}`; //sa il schimb ca imi faca pe backend
+
+      try {
+        const res = await fetch(url, {
+          method: 'PUT', //in caz ca e alta metoda
+          body: file,
+          headers: {
+            'Content-Type': file.type
+          }
+        });
+
+        if (res.ok) {
+          alert('Upload successful!');
+        } else {
+          alert('Upload failed: ' + res.status);
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+  </script>
 </body>
 </html>
+
+--
